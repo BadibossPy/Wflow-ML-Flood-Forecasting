@@ -1,10 +1,22 @@
+# Data Acquisition
 cdsapi
+
+# Data Processing
 xarray
 netcdf4
 pandas
 numpy
+geopandas
+pyyaml
+
+# Visualization
 plotly
 folium
 matplotlib
-nbformat>=4.2.0
 
+# Hydrological Modeling
+hydromt
+hydromt_wflow
+
+# Notebook
+nbformat>=4.2.0

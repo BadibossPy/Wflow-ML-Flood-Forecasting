@@ -1,0 +1,30 @@
+# HydroMT Data Catalog - Upper Niger Wflow Model
+# ================================================
+# This catalog defines local data sources for HydroMT.
+# Remote data (MERIT, SoilGrids, etc.) are fetched from artifact_data.
+
+meta:
+  name: Upper Niger Wflow Data Catalog
+  version: 1.0
+
+# ─────────────────────────────────────────────────────────────────
+# ERA5-Land Forcing Data (from 01_data_acquisition.ipynb)
+# ─────────────────────────────────────────────────────────────────
+# Source: Copernicus CDS ERA5-Land
+# Processing: Hourly → Daily, SI → Hydrological units
+# Variables:
+#   - precip: Daily total precipitation [mm/day]
+#   - temp: Daily mean 2m temperature [°C]
+#   - pet: Daily total potential evapotranspiration [mm/day]
+#   - soil_moisture: Daily mean volumetric soil water L1 [m³/m³]
+
+era5_forcing:
+  data_type: RasterDataset
+  driver: netcdf
+  path: ../data/processed/era5_niger_daily_wflow.nc
+  crs: 4326
+  rename:
+    precip: precip
+    temp: temp
+    pet: pet
+
