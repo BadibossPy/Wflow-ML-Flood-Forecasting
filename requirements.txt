@@ -1,0 +1,11 @@
+cdsapi
+xarray
+netcdf4
+pandas
+numpy
+plotly
+folium
+matplotlib
+nbformat>=4.2.0
+ipykernel
+

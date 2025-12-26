@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.ipynb_checkpoints/
+.env
+.venv
+venv/
+
+# Data (Never commit large files)
+*.nc
+*.zip
+*.tif
+*.tiff
+*.grib
+*.h5
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+era5_niger/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
