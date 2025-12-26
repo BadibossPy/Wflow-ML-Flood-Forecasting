@@ -1,0 +1,113 @@
+2025-12-26 19:11:07,532 - hydromt - log - DEBUG - Appending log messages to file C:\Users\badra\Desktop\test_greenAnt\Wflow-ML-Flood-Forecasting\models\wflow_sbm\wflow_niger\hydromt.log.
+2025-12-26 19:11:07,532 - hydromt - log - INFO - HydroMT version: 1.3.0
+2025-12-26 19:12:07,883 - hydromt - log - DEBUG - Appending log messages to file C:\Users\badra\Desktop\test_greenAnt\Wflow-ML-Flood-Forecasting\models\wflow_sbm\wflow_niger\hydromt.log.
+2025-12-26 19:12:07,883 - hydromt - log - INFO - HydroMT version: 1.3.0
+2025-12-26 19:12:07,885 - hydromt.model.model - model - INFO - build: setup_config
+2025-12-26 19:12:07,885 - hydromt.model.model - model - INFO - setup_config.data={'starttime': datetime.datetime(2019, 1, 1, 0, 0), 'endtime': datetime.datetime(2020, 2, 29, 0, 0)}
+2025-12-26 19:12:07,885 - hydromt.model.components.config - config - DEBUG - Setting model config options.
+2025-12-26 19:12:07,886 - hydromt.model.model - model - INFO - build: setup_basemaps
+2025-12-26 19:12:07,886 - hydromt.model.model - model - INFO - setup_basemaps.basin_index_fn=merit_hydro_index
+2025-12-26 19:12:07,886 - hydromt.model.model - model - INFO - setup_basemaps.res=0.00833
+2025-12-26 19:12:07,886 - hydromt.model.model - model - INFO - setup_basemaps.upscale_method=ihu
+2025-12-26 19:12:07,886 - hydromt.model.model - model - INFO - setup_basemaps.output_names={'basin__local_drain_direction': 'local_drain_direction', 'subbasin_location__count': 'subcatchment', 'land_surface__slope': 'land_slope'}
+2025-12-26 19:12:07,887 - hydromt.model.model - model - INFO - setup_basemaps.region={'bbox': [-10.0, 10.0, -7.0, 12.5]}
+2025-12-26 19:12:07,887 - hydromt.model.model - model - INFO - setup_basemaps.hydrography_fn=merit_hydro
+2025-12-26 19:12:07,887 - hydromt.hydromt_wflow.wflow_base - wflow_base - INFO - Preparing base hydrography basemaps.
+2025-12-26 19:12:07,888 - hydromt.data_catalog.sources.data_source - data_source - INFO - Reading merit_hydro RasterDataset data from p:\wflow_global\hydromt\topography\merit_hydro\*.vrt
+2025-12-26 19:12:07,888 - hydromt.data_catalog.uri_resolvers.convention_resolver - convention_resolver - DEBUG - attempting to resolve uri: p:\wflow_global\hydromt\topography\merit_hydro\*.vrt
+2025-12-26 19:12:52,588 - hydromt - log - DEBUG - Appending log messages to file C:\Users\badra\Desktop\test_greenAnt\Wflow-ML-Flood-Forecasting\models\wflow_sbm\wflow_niger\hydromt.log.
+2025-12-26 19:12:52,588 - hydromt - log - INFO - HydroMT version: 1.3.0
+2025-12-26 19:12:52,589 - hydromt.model.model - model - INFO - build: setup_config
+2025-12-26 19:12:52,589 - hydromt.model.model - model - INFO - setup_config.data={'starttime': datetime.datetime(2019, 1, 1, 0, 0), 'endtime': datetime.datetime(2020, 2, 29, 0, 0)}
+2025-12-26 19:12:52,589 - hydromt.model.components.config - config - DEBUG - Setting model config options.
+2025-12-26 19:12:52,589 - hydromt.model.model - model - INFO - build: setup_basemaps
+2025-12-26 19:12:52,589 - hydromt.model.model - model - INFO - setup_basemaps.basin_index_fn=merit_hydro_index
+2025-12-26 19:12:52,589 - hydromt.model.model - model - INFO - setup_basemaps.res=0.00833
+2025-12-26 19:12:52,590 - hydromt.model.model - model - INFO - setup_basemaps.upscale_method=ihu
+2025-12-26 19:12:52,590 - hydromt.model.model - model - INFO - setup_basemaps.output_names={'basin__local_drain_direction': 'local_drain_direction', 'subbasin_location__count': 'subcatchment', 'land_surface__slope': 'land_slope'}
+2025-12-26 19:12:52,590 - hydromt.model.model - model - INFO - setup_basemaps.region={'bbox': [-10.0, 10.0, -7.0, 12.5]}
+2025-12-26 19:12:52,590 - hydromt.model.model - model - INFO - setup_basemaps.hydrography_fn=merit_hydro
+2025-12-26 19:12:52,590 - hydromt.hydromt_wflow.wflow_base - wflow_base - INFO - Preparing base hydrography basemaps.
+2025-12-26 19:12:52,591 - hydromt.data_catalog.sources.data_source - data_source - INFO - Reading merit_hydro RasterDataset data from C:\Users\badra\.hydromt\artifact_data\latest\merit_hydro\{variable}.tif
+2025-12-26 19:12:52,591 - hydromt.data_catalog.uri_resolvers.convention_resolver - convention_resolver - DEBUG - attempting to resolve uri: C:\Users\badra\.hydromt\artifact_data\latest\merit_hydro\{variable}.tif
+2025-12-26 19:12:53,102 - hydromt.hydromt_wflow.workflows.basemaps - basemaps - WARNING - Kind 'bbox' for the region is not recommended as it can lead to mistakes in the catchment delineation. Use carefully.
+2025-12-26 19:12:53,102 - hydromt.model.processes.region - region - DEBUG - Parsed region (kind=bbox): {'bbox': [-10.0, 10.0, -7.0, 12.5]}
+2025-12-26 19:15:20,200 - hydromt - log - DEBUG - Appending log messages to file C:\Users\badra\Desktop\test_greenAnt\Wflow-ML-Flood-Forecasting\models\wflow_sbm\wflow_niger\hydromt.log.
+2025-12-26 19:15:20,200 - hydromt - log - INFO - HydroMT version: 1.3.0
+2025-12-26 19:15:20,202 - hydromt.model.model - model - INFO - build: setup_config
+2025-12-26 19:15:20,202 - hydromt.model.model - model - INFO - setup_config.data={'starttime': datetime.datetime(2019, 1, 1, 0, 0), 'endtime': datetime.datetime(2020, 2, 29, 0, 0)}
+2025-12-26 19:15:20,203 - hydromt.model.components.config - config - DEBUG - Setting model config options.
+2025-12-26 19:15:20,203 - hydromt.model.model - model - INFO - build: setup_basemaps
+2025-12-26 19:15:20,203 - hydromt.model.model - model - INFO - setup_basemaps.basin_index_fn=merit_hydro_index
+2025-12-26 19:15:20,203 - hydromt.model.model - model - INFO - setup_basemaps.res=0.00833
+2025-12-26 19:15:20,204 - hydromt.model.model - model - INFO - setup_basemaps.upscale_method=ihu
+2025-12-26 19:15:20,204 - hydromt.model.model - model - INFO - setup_basemaps.output_names={'basin__local_drain_direction': 'local_drain_direction', 'subbasin_location__count': 'subcatchment', 'land_surface__slope': 'land_slope'}
+2025-12-26 19:15:20,204 - hydromt.model.model - model - INFO - setup_basemaps.region={'subbasin': [-8.5, 11.5], 'strord': 4, 'bounds': [-10.0, 10.0, -7.0, 12.5]}
+2025-12-26 19:15:20,204 - hydromt.model.model - model - INFO - setup_basemaps.hydrography_fn=merit_hydro
+2025-12-26 19:15:20,205 - hydromt.hydromt_wflow.wflow_base - wflow_base - INFO - Preparing base hydrography basemaps.
+2025-12-26 19:15:20,205 - hydromt.data_catalog.sources.data_source - data_source - INFO - Reading merit_hydro RasterDataset data from C:\Users\badra\.hydromt\artifact_data\latest\merit_hydro\{variable}.tif
+2025-12-26 19:15:20,205 - hydromt.data_catalog.uri_resolvers.convention_resolver - convention_resolver - DEBUG - attempting to resolve uri: C:\Users\badra\.hydromt\artifact_data\latest\merit_hydro\{variable}.tif
+2025-12-26 19:15:20,500 - hydromt.data_catalog.sources.data_source - data_source - INFO - Reading merit_hydro_index GeoDataFrame data from C:\Users\badra\.hydromt\artifact_data\latest\merit_hydro_index.gpkg
+2025-12-26 19:15:20,507 - hydromt.data_catalog.uri_resolvers.convention_resolver - convention_resolver - DEBUG - attempting to resolve uri: C:\Users\badra\.hydromt\artifact_data\latest\merit_hydro_index.gpkg
+2025-12-26 19:15:20,509 - hydromt._utils.unused_kwargs - unused_kwargs - DEBUG - object: PyogrioDriver does not use kwarg metadata with value crs=<Geographic 2D CRS: EPSG:4326>
+Name: WGS 84
+Axis Info [ellipsoidal]:
+- Lat[north]: Geodetic latitude (degree)
+- Lon[east]: Geodetic longitude (degree)
+Area of Use:
+- name: World.
+- bounds: (-180.0, -90.0, 180.0, 90.0)
+Datum: World Geodetic System 1984 ensemble
+- Ellipsoid: WGS 84
+- Prime Meridian: Greenwich
+ unit=None extent={} nodata=None attrs={} category='topography' paper_doi='10.5194/hess-2020-582' paper_ref='Eilander et al. (in review)' license='CC-BY-NC 4.0'.
+2025-12-26 19:15:50,448 - hydromt - log - DEBUG - Appending log messages to file C:\Users\badra\Desktop\test_greenAnt\Wflow-ML-Flood-Forecasting\models\wflow_sbm\wflow_niger\hydromt.log.
+2025-12-26 19:15:50,448 - hydromt - log - INFO - HydroMT version: 1.3.0
+2025-12-26 19:15:50,450 - hydromt.model.model - model - INFO - build: setup_config
+2025-12-26 19:15:50,451 - hydromt.model.model - model - INFO - setup_config.data={'starttime': datetime.datetime(2019, 1, 1, 0, 0), 'endtime': datetime.datetime(2020, 2, 29, 0, 0)}
+2025-12-26 19:15:50,451 - hydromt.model.components.config - config - DEBUG - Setting model config options.
+2025-12-26 19:15:50,451 - hydromt.model.model - model - INFO - build: setup_basemaps
+2025-12-26 19:15:50,451 - hydromt.model.model - model - INFO - setup_basemaps.basin_index_fn=None
+2025-12-26 19:15:50,452 - hydromt.model.model - model - INFO - setup_basemaps.res=0.00833
+2025-12-26 19:15:50,452 - hydromt.model.model - model - INFO - setup_basemaps.upscale_method=ihu
+2025-12-26 19:15:50,452 - hydromt.model.model - model - INFO - setup_basemaps.output_names={'basin__local_drain_direction': 'local_drain_direction', 'subbasin_location__count': 'subcatchment', 'land_surface__slope': 'land_slope'}
+2025-12-26 19:15:50,452 - hydromt.model.model - model - INFO - setup_basemaps.region={'subbasin': [-8.5, 11.5], 'strord': 4, 'bounds': [-10.0, 10.0, -7.0, 12.5]}
+2025-12-26 19:15:50,452 - hydromt.model.model - model - INFO - setup_basemaps.hydrography_fn=merit_hydro
+2025-12-26 19:15:50,453 - hydromt.hydromt_wflow.wflow_base - wflow_base - INFO - Preparing base hydrography basemaps.
+2025-12-26 19:15:50,453 - hydromt.data_catalog.sources.data_source - data_source - INFO - Reading merit_hydro RasterDataset data from C:\Users\badra\.hydromt\artifact_data\latest\merit_hydro\{variable}.tif
+2025-12-26 19:15:50,453 - hydromt.data_catalog.uri_resolvers.convention_resolver - convention_resolver - DEBUG - attempting to resolve uri: C:\Users\badra\.hydromt\artifact_data\latest\merit_hydro\{variable}.tif
+2025-12-26 19:15:50,842 - hydromt.gis.flw - flw - DEBUG - Initializing flwdir with geographic CRS with unit degree.
+2025-12-26 19:16:22,854 - hydromt - log - DEBUG - Appending log messages to file C:\Users\badra\Desktop\test_greenAnt\Wflow-ML-Flood-Forecasting\models\wflow_sbm\wflow_niger\hydromt.log.
+2025-12-26 19:16:22,854 - hydromt - log - INFO - HydroMT version: 1.3.0
+2025-12-26 19:16:22,854 - hydromt.model.model - model - INFO - build: setup_config
+2025-12-26 19:16:22,856 - hydromt.model.model - model - INFO - setup_config.data={'starttime': datetime.datetime(2019, 1, 1, 0, 0), 'endtime': datetime.datetime(2020, 2, 29, 0, 0)}
+2025-12-26 19:16:22,857 - hydromt.model.components.config - config - DEBUG - Setting model config options.
+2025-12-26 19:16:22,857 - hydromt.model.model - model - INFO - build: setup_basemaps
+2025-12-26 19:16:22,857 - hydromt.model.model - model - INFO - setup_basemaps.basin_index_fn=None
+2025-12-26 19:16:22,857 - hydromt.model.model - model - INFO - setup_basemaps.res=0.00833
+2025-12-26 19:16:22,857 - hydromt.model.model - model - INFO - setup_basemaps.upscale_method=ihu
+2025-12-26 19:16:22,857 - hydromt.model.model - model - INFO - setup_basemaps.output_names={'basin__local_drain_direction': 'local_drain_direction', 'subbasin_location__count': 'subcatchment', 'land_surface__slope': 'land_slope'}
+2025-12-26 19:16:22,857 - hydromt.model.model - model - INFO - setup_basemaps.region={'bbox': [-10.0, 10.0, -7.0, 12.5]}
+2025-12-26 19:16:22,859 - hydromt.model.model - model - INFO - setup_basemaps.hydrography_fn=merit_hydro
+2025-12-26 19:16:22,859 - hydromt.hydromt_wflow.wflow_base - wflow_base - INFO - Preparing base hydrography basemaps.
+2025-12-26 19:16:22,859 - hydromt.data_catalog.sources.data_source - data_source - INFO - Reading merit_hydro RasterDataset data from C:\Users\badra\.hydromt\artifact_data\latest\merit_hydro\{variable}.tif
+2025-12-26 19:16:22,859 - hydromt.data_catalog.uri_resolvers.convention_resolver - convention_resolver - DEBUG - attempting to resolve uri: C:\Users\badra\.hydromt\artifact_data\latest\merit_hydro\{variable}.tif
+2025-12-26 19:16:23,274 - hydromt.hydromt_wflow.workflows.basemaps - basemaps - WARNING - Kind 'bbox' for the region is not recommended as it can lead to mistakes in the catchment delineation. Use carefully.
+2025-12-26 19:16:23,274 - hydromt.model.processes.region - region - DEBUG - Parsed region (kind=bbox): {'bbox': [-10.0, 10.0, -7.0, 12.5]}
+2025-12-26 19:22:40,435 - hydromt - log - DEBUG - Appending log messages to file C:\Users\badra\Desktop\test_greenAnt\Wflow-ML-Flood-Forecasting\models\wflow_sbm\wflow_niger\hydromt.log.
+2025-12-26 19:22:40,436 - hydromt - log - INFO - HydroMT version: 1.3.0
+2025-12-26 19:22:40,437 - hydromt.model.model - model - INFO - build: setup_config
+2025-12-26 19:22:40,437 - hydromt.model.model - model - INFO - setup_config.data={'starttime': datetime.datetime(2019, 1, 1, 0, 0), 'endtime': datetime.datetime(2020, 2, 29, 0, 0)}
+2025-12-26 19:22:40,437 - hydromt.model.components.config - config - DEBUG - Setting model config options.
+2025-12-26 19:22:40,437 - hydromt.model.model - model - INFO - build: setup_basemaps
+2025-12-26 19:22:40,439 - hydromt.model.model - model - INFO - setup_basemaps.basin_index_fn=merit_hydro_index_local
+2025-12-26 19:22:40,439 - hydromt.model.model - model - INFO - setup_basemaps.res=0.00833
+2025-12-26 19:22:40,439 - hydromt.model.model - model - INFO - setup_basemaps.upscale_method=ihu
+2025-12-26 19:22:40,439 - hydromt.model.model - model - INFO - setup_basemaps.output_names={'basin__local_drain_direction': 'local_drain_direction', 'subbasin_location__count': 'subcatchment', 'land_surface__slope': 'land_slope'}
+2025-12-26 19:22:40,439 - hydromt.model.model - model - INFO - setup_basemaps.region={'bbox': [-10.0, 10.0, -7.0, 12.5]}
+2025-12-26 19:22:40,439 - hydromt.model.model - model - INFO - setup_basemaps.hydrography_fn=merit_hydro_local
+2025-12-26 19:22:40,440 - hydromt.hydromt_wflow.wflow_base - wflow_base - INFO - Preparing base hydrography basemaps.
+2025-12-26 19:22:40,440 - hydromt.data_catalog.sources.data_source - data_source - INFO - Reading merit_hydro_local RasterDataset data from C:\Users\badra\.hydromt\artifact_data\latest\merit_hydro\{variable}.tif
+2025-12-26 19:22:40,440 - hydromt.data_catalog.uri_resolvers.convention_resolver - convention_resolver - DEBUG - attempting to resolve uri: C:\Users\badra\.hydromt\artifact_data\latest\merit_hydro\{variable}.tif
+2025-12-26 19:22:40,785 - hydromt.hydromt_wflow.workflows.basemaps - basemaps - WARNING - Kind 'bbox' for the region is not recommended as it can lead to mistakes in the catchment delineation. Use carefully.
+2025-12-26 19:22:40,785 - hydromt.model.processes.region - region - DEBUG - Parsed region (kind=bbox): {'bbox': [-10.0, 10.0, -7.0, 12.5]}

@@ -1,0 +1,80 @@
+casename = "wflow_sbm"
+calendar = "proleptic_gregorian"
+starttime = "2019-01-01T00:00:00"
+endtime = "2020-02-28T00:00:00"
+time_units = "days since 1900-01-01 00:00:00"
+timestepsecs = 86400
+dir_output = "run_default"
+
+[state]
+path_input = "instate/instates.nc"
+path_output = "outstate/outstates.nc"
+
+[input]
+path_forcing = "inmaps.nc"
+path_static = "staticmaps.nc"
+ldd = "wflow_ldd"
+river_location = "wflow_river"
+subcatchment = "wflow_subcatch"
+forcing = ["vertical.precipitation", "vertical.temperature", "vertical.potential_evaporation"]
+cyclic = ["vertical.leaf_area_index"]
+
+[model]
+type = "sbm"
+masswasting = false
+snow = false
+reinit = true
+reservoirs = false
+lakes = false
+glacier = false
+kin_wave_iteration = true
+kw_river_tstep = 900
+kw_land_tstep = 3600
+thicknesslayers = [100, 300, 800]
+river_routing = "kinematic-wave"
+
+[output]
+path = "output.nc"
+
+[csv]
+path = "output.csv"
+[[csv.column]]
+header = "Q"
+map = "gauges"
+parameter = "lateral.river.q_av"
+
+[input.vertical]
+altitude = "wflow_dem"
+precipitation = "precip"
+temperature = "temp"
+potential_evaporation = "pet"
+leaf_area_index = "LAI"
+soilthickness = "SoilThickness"
+kv_0 = "KsatVer"
+theta_s = "thetaS"
+theta_r = "thetaR"
+
+[input.lateral.river]
+slope = "Slope"
+n = "N"
+
+[input.lateral.land]
+slope = "Slope"
+n = "N"
+
+[state.vertical]
+satwaterdepth = "satwaterdepth"
+ustorelayerdepth = "ustorelayerdepth"
+canopystorage = "canopystorage"
+
+[state.lateral.river]
+q = "q_river"
+h = "h_river"
+
+[state.lateral.land]
+q = "q_land"
+h = "h_land"
+
+[output.lateral.river]
+q_av = "q_river"
+

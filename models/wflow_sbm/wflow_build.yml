@@ -1,103 +1,59 @@
-# Wflow Model Configuration - Upper Niger Basin
-# HydroMT Build Configuration (wflow_build.yml)
-# =============================================
-# This YAML file defines the model setup steps executed by HydroMT.
-# Each section maps to a hydromt_wflow method.
+# Wflow Model Configuration - Upper Niger Basin (HydroMT v1.x format)
+# ====================================================================
 
-# ─────────────────────────────────────────────────────────────────
-# 1. TEMPORAL DOMAIN
-# ─────────────────────────────────────────────────────────────────
-# Must align with ERA5 forcing data period (2019-2020 from notebook 01)
-setup_config:
-  starttime: 2019-01-01
-  endtime: 2020-12-31
+steps:
+  - setup_config:
+      data:
+        starttime: 2019-01-01T00:00:00
+        endtime: 2020-02-29T00:00:00
 
-# ─────────────────────────────────────────────────────────────────
-# 2. TOPOGRAPHIC BASE (MERIT Hydro DEM)
-# ─────────────────────────────────────────────────────────────────
-# Resolution: 0.00833° (~1km) for regional model
-# Higher res (0.004°) requires more compute, use for small catchments
-setup_basemaps:
-  hydrography_fn: merit_hydro
-  basin_index_fn: merit_hydro_index
-  upscale_method: ihu
-  res: 0.00833
+  - setup_basemaps:
+      region:
+        bbox: [-10.0, 10.0, -7.0, 12.5]  # [xmin, ymin, xmax, ymax]
+      hydrography_fn: merit_hydro_local
+      basin_index_fn: merit_hydro_index_local
+      upscale_method: ihu
+      res: 0.00833
 
-# ─────────────────────────────────────────────────────────────────
-# 3. RIVER NETWORK
-# ─────────────────────────────────────────────────────────────────
-# Upstream area threshold (river_upa) defines stream initiation
-# 10 km² (0.1 degrees²) reasonable for Niger headwaters
-setup_rivers:
-  hydrography_fn: merit_hydro
-  river_geom_fn: hydro_rivers_lin
-  river_upa: 10
-  rivdph_method: powlaw
-  min_rivdph: 1.0
-  min_rivwth: 30
-  slope_len: 2000
-  smooth_len: 5000
-  river_routing: kinematic-wave
+  - setup_rivers:
+      hydrography_fn: merit_hydro
+      river_upa: 10
+      rivdph_method: powlaw
+      min_rivdph: 1.0
+      min_rivwth: 30
 
-# ─────────────────────────────────────────────────────────────────
-# 4. LAND USE / LAND COVER
-# ─────────────────────────────────────────────────────────────────
-setup_lulcmaps:
-  lulc_fn: globcover_2009
-  lulc_mapping_fn: globcover_mapping_default
+  - setup_lulcmaps:
+      lulc_fn: globcover_local
+      lulc_mapping_fn: globcover_mapping_default
 
-# ─────────────────────────────────────────────────────────────────
-# 5. LEAF AREA INDEX (Seasonal Vegetation)
-# ─────────────────────────────────────────────────────────────────
-setup_laimaps:
-  lai_fn: modis_lai
+  - setup_laimaps:
+      lai_fn: modis_lai_local
 
-# ─────────────────────────────────────────────────────────────────
-# 6. SOIL PROPERTIES (SoilGrids 250m)
-# ─────────────────────────────────────────────────────────────────
-# Pedotransfer function (ptf) converts soil texture to hydraulic params
-setup_soilmaps:
-  soil_fn: soilgrids
-  ptf_ksatver: brakensiek
+  - setup_soilmaps:
+      soil_fn: soilgrids_local
+      ptf_ksatver: brakensiek
 
-# ─────────────────────────────────────────────────────────────────
-# 7. OUTLETS & GAUGES
-# ─────────────────────────────────────────────────────────────────
-setup_outlets:
-  river_only: true
+  - setup_outlets:
+      river_only: true
 
-# ─────────────────────────────────────────────────────────────────
-# 8. METEOROLOGICAL FORCING (ERA5-Land)
-# ─────────────────────────────────────────────────────────────────
-# Reference: era5_forcing defined in hydromt_data.yml
-# Variables: precip, temp, pet (from notebook 01)
-setup_precip_forcing:
-  precip_fn: era5_forcing
+  - setup_precip_forcing:
+      precip_fn: era5_forcing
 
-setup_temp_pet_forcing:
-  temp_pet_fn: era5_forcing
-  skip_pet: false
+  - setup_temp_pet_forcing:
+      temp_pet_fn: era5_forcing
 
-# ─────────────────────────────────────────────────────────────────
-# 9. CALIBRATION PARAMETERS (West Africa Defaults)
-# ─────────────────────────────────────────────────────────────────
-# These values are starting points; calibration against observed Q required
-setup_constant_pars:
-  # Subsurface lateral flow
-  KsatHorFrac: 50
-  # Snow (minimal in tropics, but keep for model stability)
-  Cfmax: 3.0
-  TT: 0
-  TTI: 2
-  TTM: 0
-  WHC: 0.1
-  # Soil
-  cf_soil: 0.05
-  EoverR: 0.10
-  KsatVer: 5.0
-  SoilThickness: 2000
-  InfiltCapPath: 5
-  InfiltCapSoil: 400
-  MaxLeakage: 0
-  rootdistpar: -500
-
+  - setup_constant_pars:
+      KsatHorFrac: 50
+      Cfmax: 3.0
+      TT: 0
+      TTI: 2
+      TTM: 0
+      WHC: 0.1
+      cf_soil: 0.05
+      EoverR: 0.10
+      KsatVer: 5.0
+      SoilThickness: 2000
+      InfiltCapPath: 5
+      InfiltCapSoil: 400
+      MaxLeakage: 0
+      rootdistpar: -500

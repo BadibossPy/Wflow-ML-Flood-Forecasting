@@ -1,58 +1,77 @@
 # Wflow-ML-Flood-Forecasting
 
 ## Overview
-A physics-informed hydrological forecasting system for the Upper Niger Basin, integrating **Wflow SBM** (physically-based hydrology) with **Machine Learning** for flood prediction.
+A physics-informed hydrological forecasting system for the **Upper Niger Basin**, integrating Wflow SBM with Machine Learning for flood prediction.
 
 ## Project Structure
-
 ```
 Wflow-ML-Flood-Forecasting/
 ├── data/
-│   ├── raw/                          # ERA5 NetCDF files (gitignored)
-│   └── processed/                    # Wflow-ready daily forcing
+│   ├── static/              # DEM, flow direction, slope (from SRTM)
+│   └── processed/           # ERA5 daily forcing
 ├── notebooks/
-│   ├── 01_data_acquisition.ipynb     # ERA5-Land retrieval & processing
-│   ├── 02_wflow_model_build.ipynb    # HydroMT model construction
-│   └── 03_ml_forecast.ipynb          # ML flood forecasting (TBD)
-├── models/
-│   └── wflow_sbm/
-│       ├── wflow_build.yml           # HydroMT build configuration
-│       ├── hydromt_data.yml          # Data catalog (ERA5 forcing)
-│       └── run_wflow.jl              # Julia simulation runner
-├── src/                              # Python modules (TBD)
+│   ├── 00_static_data_acquisition.ipynb  # Download SRTM, derive LDD
+│   ├── 01_data_acquisition.ipynb         # ERA5-Land forcing
+│   └── 02_wflow_model_build.ipynb        # Model inspection
+├── models/wflow_sbm/wflow_niger/
+│   ├── staticmaps.nc        # Static model parameters
+│   ├── inmaps.nc            # ERA5 forcing (precip, temp, PET)
+│   ├── cyclic_lai.nc        # Monthly LAI climatology
+│   └── wflow_sbm.toml       # Wflow configuration
+├── scripts/
+│   ├── create_model_files.py
+│   └── verify_model.py
 └── requirements.txt
 ```
 
-## Notebooks
+## Model Domain
+- **Region:** Upper Niger Basin (Guinea/Mali)
+- **Bbox:** [-10.5°, 9.5°, -6.5°, 13.0°]
+- **Resolution:** 0.1° (~10 km)
+- **Period:** 2019-01-01 to 2020-02-29
 
-| Notebook | Description | Status |
-|----------|-------------|--------|
-| `01_data_acquisition` | ERA5-Land download, unit conversion, daily aggregation | ✅ Complete |
-| `02_wflow_model_build` | HydroMT model setup, static maps, forcing preparation | ✅ Complete |
-| `03_ml_forecast` | ML-based flood threshold prediction | 🔄 In Progress |
+## Data Sources
+| Dataset | Source | Resolution |
+|---------|--------|------------|
+| DEM | CGIAR SRTM 90m | 90m |
+| Flow Direction | Derived (pyflwdir) | 0.1° |
+| Forcing | ERA5-Land | 0.1° daily |
+| LAI | Synthetic climatology | Monthly |
 
-## Dependencies
+## Quick Start
 
-**Python:**
+### 1. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-**Julia (for Wflow simulation):**
-```julia
-using Pkg
-Pkg.add("Wflow")
+### 2. Download Static Data
+Run `notebooks/00_static_data_acquisition.ipynb` or:
+```bash
+python scripts/create_model_files.py
 ```
 
-## Usage
+### 3. Run Wflow Simulation
+Requires Julia + Wflow.jl:
+```bash
+cd models/wflow_sbm/wflow_niger
+julia -e "using Wflow; Wflow.run(\"wflow_sbm.toml\")"
+```
 
-1. **Data Acquisition:** Run `01_data_acquisition.ipynb` to download ERA5-Land forcing
-2. **Model Build:** Run `02_wflow_model_build.ipynb` to construct the Wflow model
-3. **Simulation:** Execute Julia script:
-   ```bash
-   julia models/wflow_sbm/run_wflow.jl models/wflow_sbm/wflow_niger/wflow_sbm.toml
-   ```
+## Notebooks
+| # | Notebook | Description |
+|---|----------|-------------|
+| 00 | `00_static_data_acquisition` | Download SRTM, derive flow direction |
+| 01 | `01_data_acquisition` | ERA5-Land forcing download |
+| 02 | `02_wflow_model_build` | Model inspection and visualization |
 
-## Study Area
-Upper Niger Basin (Guinea/Mali) — a monsoon-driven tropical catchment with strong seasonal rainfall variability.
+## Model Configuration
+- **Type:** Wflow SBM (Soil-Bucket Model)
+- **Routing:** Kinematic wave
+- **Timestep:** Daily (86400 s)
+- **Snow:** Disabled (tropical region)
 
+## Output Variables
+- `q_river`: River discharge (m³/s)
+- `satwaterdepth`: Saturated zone depth
+- `ustorelayerdepth`: Unsaturated storage

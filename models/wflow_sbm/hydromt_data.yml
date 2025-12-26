@@ -1,30 +1,32 @@
-# HydroMT Data Catalog - Upper Niger Wflow Model
-# ================================================
-# This catalog defines local data sources for HydroMT.
-# Remote data (MERIT, SoilGrids, etc.) are fetched from artifact_data.
+# HydroMT Data Catalog - Niger Basin (Local Data Only)
+# =====================================================
+# All data downloaded via 00_static_data_acquisition.ipynb
 
-meta:
-  name: Upper Niger Wflow Data Catalog
-  version: 1.0
+# Static maps (DEM, flow direction, slope, etc.)
+staticmaps_niger:
+  data_type: RasterDataset
+  uri: C:/Users/badra/Desktop/test_greenAnt/Wflow-ML-Flood-Forecasting/data/static/staticmaps_niger.nc
+  driver:
+    name: raster_xarray
+  metadata:
+    crs: 4326
 
-# ─────────────────────────────────────────────────────────────────
-# ERA5-Land Forcing Data (from 01_data_acquisition.ipynb)
-# ─────────────────────────────────────────────────────────────────
-# Source: Copernicus CDS ERA5-Land
-# Processing: Hourly → Daily, SI → Hydrological units
-# Variables:
-#   - precip: Daily total precipitation [mm/day]
-#   - temp: Daily mean 2m temperature [°C]
-#   - pet: Daily total potential evapotranspiration [mm/day]
-#   - soil_moisture: Daily mean volumetric soil water L1 [m³/m³]
+# LAI monthly climatology
+lai_niger:
+  data_type: RasterDataset
+  uri: C:/Users/badra/Desktop/test_greenAnt/Wflow-ML-Flood-Forecasting/data/static/lai_niger.nc
+  driver:
+    name: raster_xarray
+  metadata:
+    crs: 4326
 
+# ERA5-Land forcing (from 01_data_acquisition.ipynb)
 era5_forcing:
   data_type: RasterDataset
-  driver: netcdf
-  path: ../data/processed/era5_niger_daily_wflow.nc
-  crs: 4326
-  rename:
-    precip: precip
-    temp: temp
-    pet: pet
-
+  uri: C:/Users/badra/Desktop/test_greenAnt/Wflow-ML-Flood-Forecasting/data/processed/era5_niger_daily_wflow_fixed.nc
+  driver:
+    name: raster_xarray
+    options:
+      decode_times: true
+  metadata:
+    crs: 4326
