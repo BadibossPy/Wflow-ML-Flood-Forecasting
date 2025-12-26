@@ -1,7 +1,7 @@
 # Wflow-ML-Flood-Forecasting
 
 ## Overview
-A physics-informed hydrological forecasting system for the Upper Niger Basin, integrating **Wflow SBM** (physically-based hydrology) with **Machine Learning** for flood prediction. This project demonstrates a complete rigorous workflow from expert-level data acquisition to discharge modeling.
+A physics-informed hydrological forecasting system for the Upper Niger Basin, integrating **Wflow SBM** (physically-based hydrology) with **Machine Learning** for flood prediction. This project is the workflow from data acquisition to discharge modeling.
 
 ## Project Architecture
 The repository is structured to separate data processing, physical modeling, and analysis:
@@ -12,7 +12,7 @@ Wflow-ML-Flood-Forecasting/
 │   ├── raw/                 # ERA5 NetCDF files (not tracked)
 │   └── processed/           # Wflow-ready forcing and ML features
 ├── notebooks/
-│   ├── 01_data_acquisition.ipynb    # ERA5-Land retrieval & processing (Expert Workflow)
+│   ├── 01_data_acquisition.ipynb    # ERA5-Land retrieval & processing 
 │   ├── 02_wflow_build.ipynb         # HydroMT model construction
 │   └── 03_ml_forecast.ipynb         # Hybrid forecasting model
 ├── src/                     # Core python modules
@@ -25,7 +25,7 @@ Wflow-ML-Flood-Forecasting/
 ### 1. Data Acquisition (ERA5-Land)
 - **Source:** Copernicus Climate Data Store (CDS)
 - **Method:** Optimized parallel retrieval using `cdsapi` with unarchived NetCDF handling.
-- **Processing:** Rigorous physical unit conversion (SI to Hydrological), temporal aggregation (Hourly to Daily), and water balance validation (Precipitation, PET, Soil Moisture).
+- **Processing:** physical unit conversion (SI to Hydrological), temporal aggregation (Hourly to Daily), and water balance validation (Precipitation, PET, Soil Moisture).
 
 ### 2. Hydrological Modeling (Wflow SBM)
 *(In Progress)*
@@ -43,7 +43,4 @@ Wflow-ML-Flood-Forecasting/
    ```
 2. **Data Acquisition:**
    Run `notebooks/01_data_acquisition.ipynb` to download and process the forcing data.
-
-## Author
-Hydrologist & Data Scientist
 
